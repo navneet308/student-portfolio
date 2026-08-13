@@ -277,6 +277,7 @@ if (messageInput) {
 
 if (form) {
     form.addEventListener("keydown", (event) => {
+
         if (event.key === "Escape") {
             form.reset();
 
@@ -287,6 +288,10 @@ if (form) {
             clearError(messageInput);
 
             successMessage.textContent = "";
+        }
+
+        if (event.key === "Enter" && event.target.tagName !== "TEXTAREA") {
+            form.requestSubmit();
         }
     });
 }
